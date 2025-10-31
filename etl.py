@@ -4,7 +4,7 @@ import streamlit as st
 st.write('Welcome to AVD 123')
 
 data = {
-    "Task": ["Extract", "Transform", "Load"],
+    "Task": ["Extract2", "Transform", "Load"],
     "Status": ["Completed", "InProgress", "Pending"]
 }
 
