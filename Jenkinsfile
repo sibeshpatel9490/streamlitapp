@@ -13,6 +13,7 @@ pipeline {
                     echo Removing container %%i
                     docker rm -f %%i
                 )
+                exit /b 0
                 '''
             }
         }
