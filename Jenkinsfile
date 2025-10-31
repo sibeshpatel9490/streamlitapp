@@ -8,17 +8,17 @@ pipeline {
         }
         stage("Cleanup Stage") {
             steps {
-                sh 'docker rm -f $(docker ps -aq)'
+                bat 'docker rm -f $(docker ps -aq)'
             }
         }
         stage("Build Docker image") {
             steps {
-                sh 'docker build -t myimage .'
+                bat 'docker build -t myimage .'
             }
         }
         stage("Create Container") {
             steps {
-                sh 'docker run -d -p 8501:8501 myimage'
+                bat 'docker run -d -p 8501:8501 myimage'
             }
         }
     }
