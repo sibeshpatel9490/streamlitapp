@@ -8,9 +8,15 @@ pipeline {
         }
         stage("Cleanup Stage") {
             steps {
-                bat 'docker rm -f myapp'
+                bat '''
+                for /f %%i in ('docker ps -q') do (
+                    echo Removing container %%i
+                    docker rm -f %%i
+                )
+                '''
             }
         }
+
         stage("Build Docker image") {
             steps {
                 bat 'docker build -t myimage .'
